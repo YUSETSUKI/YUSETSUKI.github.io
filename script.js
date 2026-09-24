@@ -80,7 +80,7 @@ document.getElementById("gachaBtn").addEventListener("click", () => {
             const progressText = document.getElementById("progressText");
             const progressBarFill = document.getElementById("progressBarFill");
 
-            progressText.textContent = "データ調整中 0％";
+            progressText.textContent = "データ読込中… 0％";
             progressBarFill.style.width = "0%";
             progressContainer.style.display = "block";
 
@@ -192,7 +192,7 @@ function showResult() {
         displayFood = `＜${currentRarity}＞${currentFood}`;
     }
 
-    document.getElementById("resultFoodText").textContent = `今日のラッキーフードは『${displayFood}』でした！`;
+    document.getElementById("resultFoodText").textContent = `あなたのラッキーフードは『${displayFood}』でした！`;
     document.getElementById("resultArea").style.display = "block";
 
     updateMapIframe(currentFood);
@@ -202,7 +202,7 @@ function showResult() {
         youtubeShareUrl += `&t=${currentStartTime}s`;
     }
 
-    const shareText = `私のラッキーフードは『${displayFood}』でした！\n${youtubeShareUrl}\n\n↓↓ガチャのページはこちら！↓↓\nhttps://yrpportal.web.fc2.com/MHMHGC/index.html\n※非公式のファンサイトへ遷移します\n\n#雪城眞尋朝活アーカイブガチャ`;
+    const shareText = `私のラッキーフードは『${displayFood}』でした！\n${youtubeShareUrl}\n\n↓↓ガチャのページはこちら！↓↓\nhttps://yusetsuki.github.io/\n※非公式のファンサイトへ遷移します\n\n#雪城眞尋朝活アーカイブガチャ`;
 
     document.getElementById("shareXBtn").onclick = () => {
         const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
