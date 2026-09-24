@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐💫まひまひ's ラッキーフードガチャ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🌐💫まひまひ's <br>ラッキーフードガチャ</h1>
+
+    <div class="container">
+        <button id="gachaBtn">ガチャを回す！</button>
+
+        <div id="videoArea">
+            <p id="placeholderText">今日のラッキーフードを見てみよう！</p>
+            
+            <div id="videoContainer" style="display: none;">
+                <div id="videoCover">
+                    <img id="videoThumb" src="" alt="サムネイル">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+
+            <div id="resultArea" style="display: none;">
+                <p id="resultFoodText"></p>
+                <button id="shareXBtn">Xで共有する</button>
+                
+                <div id="mapArea">
+                    <p id="mapCaption"></p>
+                    <iframe id="mapIframe" width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="uwasa-box">
+            <p class="uwasa-title">ラッキーフードのウワサ</p>
+            <p id="uwasaText" class="uwasa-text"></p>
+        </div>
+
+        <div id="progressContainer" class="progress-container" style="display: none;">
+            <div id="progressText" class="progress-text">データ調整中 0％</div>
+            <div class="progress-bar-bg">
+                <div id="progressBarFill" class="progress-bar-fill"></div>
+            </div>
+            <div class="progress-note">※通信環境の良い所で実行してください</div>
+        </div>
+
+        <div class="now-loading">Now Loading…</div>
+    </div>
+
+    <div id="videoModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModal" class="close-btn">&times;</span>
+            <div id="player"></div>
+        </div>
+    </div>
+
+    <footer class="disclaimer">
+        <p class="disclaimer-title">＜おことわり＞</p>
+        <p>このサイトは非公式ファンサイトです。</p>
+        <p>ANYCOLOR株式会社及び、ライバー様へのお問い合わせはおやめください</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
