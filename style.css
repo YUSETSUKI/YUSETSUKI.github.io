@@ -128,21 +128,22 @@ h1 {
     margin: 0;
 }
 
-/* ② 読み込みバー：特定範囲（700px）の左端 / 画面が狭い場合は左端（高さ80%） */
+/* ② 読み込みバー：メイン枠（700px）の左端 / 狭いときは画面左端（上から80%の位置） */
 .progress-container {
     position: fixed;
     top: 80%;
-    left: max(10px, calc(50% - 350px));
+    left: max(15px, calc(50% - 350px));
     transform: translateY(-50%);
     background: #fff;
     padding: 12px 18px;
     border-radius: 10px;
     width: 260px;
-    max-width: 40vw;
+    max-width: 45vw;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: left;
     box-sizing: border-box;
     margin: 0;
+    height: auto;
 }
 
 .progress-text {
@@ -174,19 +175,22 @@ h1 {
     line-height: 1.2;
 }
 
-/* ③ 英文 (Now Loading…)：特定範囲（700px）の右端 / 画面が狭い場合は右端（高さ80%） */
+/* ③ 英文 (Now Loading…)：メイン枠（700px）の右端 / 狭いときは画面右端（上から80%の位置） */
 .now-loading {
     position: fixed;
     top: 80%;
-    right: max(10px, calc(50% - 350px));
+    left: auto;
+    right: max(15px, calc(50% - 350px));
     transform: translateY(-50%);
-    width: max-content;
+    width: auto;
+    height: auto;
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
     letter-spacing: 1px;
     margin: 0;
     line-height: 1;
+    text-align: right;
 }
 
 /* =========================================================
