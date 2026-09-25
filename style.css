@@ -132,7 +132,7 @@ h1 {
 .progress-container {
     position: absolute;
     bottom: 43%;
-    left: 15%;
+    left: 30%;
     background: #fff;
     padding: 12px 18px;
     border-radius: 10px;
@@ -176,7 +176,7 @@ h1 {
 .now-loading {
     position: absolute;
     bottom: 41%;
-    right: 15%;
+    right: 30%;
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
