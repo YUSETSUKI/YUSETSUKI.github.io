@@ -128,10 +128,10 @@ h1 {
     margin: 0;
 }
 
-/* ② 読み込みバー：ウワサからしっかり離す（260px → 360px に拡充） */
+/* ② 読み込みバー：ウワサ離す（310px に拡充） */
 .progress-container {
     position: fixed;
-    top: calc(35% + 360px); 
+    top: calc(35% + 310px); 
     left: max(15px, calc(50% - 350px));
     transform: translateY(-100%);
     background: #fff;
@@ -178,7 +178,7 @@ h1 {
 /* ③ 英文 (Now Loading…)：読み込みバーと下辺の高さを一致 */
 .now-loading {
     position: fixed;
-    top: calc(35% + 360px);
+    top: calc(35% + 310px);
     left: auto;
     right: max(15px, calc(50% - 350px));
     transform: translateY(-100%);
