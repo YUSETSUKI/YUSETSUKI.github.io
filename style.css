@@ -130,8 +130,8 @@ h1 {
 
 /* ② 読み込みバー：ウワサの左下（内寄りのバランス） */
 .progress-container {
-    position: absolute;
-    top: 60%;
+      left: 0;
+  height: 80%;
     background: #fff;
     padding: 12px 18px;
     border-radius: 10px;
@@ -173,8 +173,8 @@ h1 {
 
 /* ③ 英文 (Now Loading…)：ウワサの右下（内寄りのバランス） */
 .now-loading {
-    position: absolute;
-    top: 68%;
+      left: 0;
+  height: 80%;
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
