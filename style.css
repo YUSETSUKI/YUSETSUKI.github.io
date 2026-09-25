@@ -89,7 +89,7 @@ h1 {
 }
 
 /* =========================================================
-   --- 読み込み画面（安全修正版） ---
+   --- 読み込み画面（位置・高さ調整済み） ---
    ========================================================= */
 .loading-overlay {
     position: fixed;
@@ -98,7 +98,7 @@ h1 {
     z-index: 2000;
 }
 
-/* ① ウワサ：画面中央やや上（上から35%） */
+/* ① ウワサ：画面中央やや上（35%の位置） */
 .uwasa-box {
     position: absolute;
     top: 35%;
@@ -128,10 +128,10 @@ h1 {
     margin: 0;
 }
 
-/* ② 読み込みバー：ウワサの下に配置（下辺揃え） */
+/* ② 読み込みバー：ウワサから離した位置（下辺基準） */
 .progress-container {
     position: fixed;
-    top: calc(35% + 180px);
+    top: calc(35% + 380px);
     left: max(15px, calc(50% - 350px));
     transform: translateY(-100%);
     background: #fff;
@@ -175,10 +175,10 @@ h1 {
     line-height: 1.2;
 }
 
-/* ③ 英文 (Now Loading…)：下辺の高さを読み込みバーとぴったり揃える */
+/* ③ 英文 (Now Loading…)：下辺の高さを読み込みバーとぴったり一致 */
 .now-loading {
     position: fixed;
-    top: calc(35% + 180px);
+    top: calc(35% + 380px);
     left: auto;
     right: max(15px, calc(50% - 350px));
     transform: translateY(-100%);
