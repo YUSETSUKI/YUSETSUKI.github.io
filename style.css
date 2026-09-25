@@ -131,7 +131,7 @@ h1 {
 /* ② 読み込みバー：ウワサの左下（内寄りのバランス） */
 .progress-container {
     position: absolute;
-　　top: 45%;
+    top: 45%;
     left: 30%;
     background: #fff;
     padding: 12px 18px;
