@@ -128,7 +128,7 @@ h1 {
     margin: 0;
 }
 
-/* ② 読み込みバー：ウワサの左下（内寄りのバランス） */
+/* ② 読み込みバー：ウワサの左下 */
 .progress-container {
   position: fixed;
     left: 0;
@@ -172,14 +172,15 @@ h1 {
     line-height: 1.2;
 }
 
-/* ③ 英文 (Now Loading…)：ウワサの右下（内寄りのバランス） */
+/* ③ 英文 (Now Loading…)：ウワサの右下 */
 .now-loading {
     position: fixed;
+    top: 0;
     bottom: 0;
     right: 0;
     left: auto;
     width: max-content;
-    height: 85%;
+    height: 85vh;
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
