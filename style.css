@@ -128,15 +128,17 @@ h1 {
     margin: 0;
 }
 
-/* ② 読み込みバー：ウワサの左下 */
+/* ② 読み込みバー：特定範囲（700px）の左端 / 画面が狭い場合は左端（高さ80%） */
 .progress-container {
-  position: fixed;
-    left: 0;
-  height: 80%;
+    position: fixed;
+    top: 80%;
+    left: max(10px, calc(50% - 350px));
+    transform: translateY(-50%);
     background: #fff;
     padding: 12px 18px;
     border-radius: 10px;
     width: 260px;
+    max-width: 40vw;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: left;
     box-sizing: border-box;
@@ -172,15 +174,13 @@ h1 {
     line-height: 1.2;
 }
 
-/* ③ 英文 (Now Loading…)：ウワサの右下 */
+/* ③ 英文 (Now Loading…)：特定範囲（700px）の右端 / 画面が狭い場合は右端（高さ80%） */
 .now-loading {
     position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: auto;
+    top: 80%;
+    right: max(10px, calc(50% - 350px));
+    transform: translateY(-50%);
     width: max-content;
-    height: 85vh;
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
