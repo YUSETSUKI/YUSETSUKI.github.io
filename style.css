@@ -175,6 +175,7 @@ h1 {
 /* ③ 英文 (Now Loading…)：ウワサの右下（内寄りのバランス） */
 .now-loading {
     position: fixed;
+    bottom: 0;
     right: 0;
     left: auto;
     width: max-content;
