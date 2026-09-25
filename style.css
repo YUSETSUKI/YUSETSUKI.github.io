@@ -89,7 +89,7 @@ h1 {
 }
 
 /* =========================================================
-   --- 読み込み画面 ---
+   --- 読み込み画面（ウワサを中央やや上に持ち上げ・バランス調整） ---
    ========================================================= */
 .loading-overlay {
     position: fixed;
@@ -98,7 +98,7 @@ h1 {
     z-index: 2000;
 }
 
-/* ① ウワサ：画面中央やや上 */
+/* ① ウワサ：画面の central-upper（上から35%の位置に引き上げ） */
 .uwasa-box {
     position: absolute;
     top: 35%;
@@ -128,23 +128,19 @@ h1 {
     margin: 0;
 }
 
-/* ② 読み込みバー：ウワサの下辺から約5cm下に配置 */
+/* ② 読み込みバー：ウワサの左下（内寄りのバランス） */
 .progress-container {
-    position: fixed;
-    /* top: 35% (ウワサの中心) + ウワサの高さ半分(約80px) + 5cm相当の隙間(約180px) ＝ calc(35% + 260px) */
-    top: calc(35% + 260px); 
-    left: max(15px, calc(50% - 350px));
-    transform: translateY(-100%); /* ボックスの「下辺」を基準点に合わせる */
+    position: absolute;
+    bottom: 43%;
+    left: 28%;
     background: #fff;
     padding: 12px 18px;
     border-radius: 10px;
     width: 260px;
-    max-width: 45vw;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: left;
     box-sizing: border-box;
     margin: 0;
-    height: auto;
 }
 
 .progress-text {
@@ -176,22 +172,17 @@ h1 {
     line-height: 1.2;
 }
 
-/* ③ 英文 (Now Loading…)：下辺の高さを読み込みバーとぴったり揃える */
+/* ③ 英文 (Now Loading…)：ウワサの右下（内寄りのバランス） */
 .now-loading {
-    position: fixed;
-    top: calc(35% + 260px); /* 読み込みバーと全く同じ高さ基準 */
-    left: auto;
-    right: max(15px, calc(50% - 350px));
-    transform: translateY(-100%); /* テキストの「一番下（ベースライン付近）」を下辺基準に揃える */
-    width: auto;
-    height: auto;
+    position: absolute;
+    bottom: 41%;
+    right: 25%;
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
     letter-spacing: 1px;
     margin: 0;
     line-height: 1;
-    text-align: right;
 }
 
 /* =========================================================
