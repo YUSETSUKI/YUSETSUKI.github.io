@@ -89,8 +89,18 @@ h1 {
 }
 
 /* =========================================================
-   --- 読み込み画面（ウワサを中央やや上に持ち上げ・バランス調整） ---
+   --- 読み込み画面（CSS変数で三角レイアウト＆画面連動管理） ---
    ========================================================= */
+:root {
+    /* 三角形の頂点（ウワサ）の中心位置 */
+    --loading-center-x: 50%;
+    --loading-center-y: 32%;
+    
+    /* ウワサ中心からの距離・広がりの変数 */
+    --triangle-spread-x: 18vw;  /* 三角形の底辺の広がり (画面幅基準) */
+    --triangle-height: 180px;   /* 頂点から底辺までの高さ */
+}
+
 .loading-overlay {
     position: fixed;
     inset: 0;
@@ -98,11 +108,11 @@ h1 {
     z-index: 2000;
 }
 
-/* ① ウワサ：画面の central-upper（上から35%の位置に引き上げ） */
+/* ① 頂点：ウワサ（画面中心寄り・上部） */
 .uwasa-box {
     position: absolute;
-    top: 35%;
-    left: 50%;
+    top: var(--loading-center-y);
+    left: var(--loading-center-x);
     transform: translate(-50%, -50%);
     background: #fff;
     padding: 25px 35px;
@@ -128,15 +138,17 @@ h1 {
     margin: 0;
 }
 
-/* ② 読み込みバー：ウワサの左下（内寄りのバランス） */
+/* ② 底辺左：読み込みバー（ウワサの中心から左下に配置） */
 .progress-container {
     position: absolute;
-    bottom: 43%;
-    left: 28%;
+    top: calc(var(--loading-center-y) + var(--triangle-height));
+    left: calc(var(--loading-center-x) - var(--triangle-spread-x));
+    transform: translate(-50%, -50%);
     background: #fff;
     padding: 12px 18px;
     border-radius: 10px;
     width: 260px;
+    max-width: 42vw;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: left;
     box-sizing: border-box;
@@ -172,17 +184,40 @@ h1 {
     line-height: 1.2;
 }
 
-/* ③ 英文 (Now Loading…)：ウワサの右下（内寄りのバランス） */
+/* ③ 底辺右：英文（ウワサの中心から右下に配置） */
 .now-loading {
     position: absolute;
-    bottom: 41%;
-    right: 25%;
+    top: calc(var(--loading-center-y) + var(--triangle-height));
+    left: calc(var(--loading-center-x) + var(--triangle-spread-x));
+    transform: translate(-50%, -50%);
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
     letter-spacing: 1px;
     margin: 0;
     line-height: 1;
+    white-space: nowrap;
+}
+
+/* --- スマホ表示用メディアクエリ（画面幅が狭い場合の崩れ防止） --- */
+@media (max-width: 768px) {
+    :root {
+        --loading-center-y: 28%;
+    }
+    
+    /* スマホでは三角配置を解除し、垂直中央揃えにする */
+    .progress-container {
+        left: 50%;
+        top: calc(var(--loading-center-y) + 160px);
+        width: 85%;
+        max-width: 320px;
+    }
+
+    .now-loading {
+        left: 50%;
+        top: calc(var(--loading-center-y) + 240px);
+        font-size: 1.2em;
+    }
 }
 
 /* =========================================================
