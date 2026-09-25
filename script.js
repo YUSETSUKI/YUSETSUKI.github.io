@@ -6,10 +6,14 @@ let currentStartTime = 0;
 let currentVideoId = "";
 let progressInterval = null;
 
+// 初期の親要素（.container）を保持
+const initialBtnParent = document.getElementById("gachaBtn").parentElement;
+
 // ガチャボタンクリック処理
 document.getElementById("gachaBtn").addEventListener("click", (e) => {
-    // ガチャ開始時にボタンを非表示にする
-    const gachaBtn = e.target;
+    const gachaBtn = document.getElementById("gachaBtn");
+    
+    // ガチャ実行時にボタンを隠す
     gachaBtn.style.display = "none";
 
     Promise.all([
@@ -79,7 +83,7 @@ document.getElementById("gachaBtn").addEventListener("click", (e) => {
 
         const progressContainer = document.getElementById("progressContainer");
 
-        // 5. タイマー処理（完了後すぐにモーダルを閉じ、サムネイルと持続光を表示）
+        // 5. タイマー処理
         if (waitSeconds === 7) {
             const progressText = document.getElementById("progressText");
             const progressBarFill = document.getElementById("progressBarFill");
@@ -115,8 +119,6 @@ document.getElementById("gachaBtn").addEventListener("click", (e) => {
         }
     }).catch(err => {
         console.error("データの読み込みに失敗しました:", err);
-        // エラー時もボタンを再表示
-        const gachaBtn = document.getElementById("gachaBtn");
         gachaBtn.style.display = "inline-block";
     });
 });
@@ -129,9 +131,8 @@ function showThumbnailWithGlow(rarity) {
     }
 
     const videoContainer = document.getElementById("videoContainer");
-    videoContainer.className = ""; // クラスのリセット
+    videoContainer.className = "";
 
-    // 外側の要素（videoContainer）に発光クラスを付与
     if (rarity === "R") videoContainer.classList.add("flash-r");
     else if (rarity === "SR") videoContainer.classList.add("flash-sr");
     else if (rarity === "SSR") videoContainer.classList.add("flash-ssr");
@@ -216,8 +217,11 @@ function showResult() {
         window.open(twitterUrl, '_blank');
     };
 
-    // --- 結果が完全に表示されたタイミングでボタンを「もう一度回す！」に変更して再表示 ---
+    // --- 地図の下（#retryBtnContainer）にボタンを移動し、「もう一度回す！」に変えて再表示 ---
     const gachaBtn = document.getElementById("gachaBtn");
+    const retryContainer = document.getElementById("retryBtnContainer");
+    
+    retryContainer.appendChild(gachaBtn);
     gachaBtn.textContent = "もう一度回す！";
     gachaBtn.style.display = "inline-block";
 }
