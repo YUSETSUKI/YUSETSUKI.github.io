@@ -176,7 +176,9 @@ h1 {
 .now-loading {
     position: fixed;
     right: 0;
-  height: 85%;
+    left: auto;
+    width: max-content;
+    height: 85%;
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
