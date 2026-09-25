@@ -7,7 +7,11 @@ let currentVideoId = "";
 let progressInterval = null;
 
 // ガチャボタンクリック処理
-document.getElementById("gachaBtn").addEventListener("click", () => {
+document.getElementById("gachaBtn").addEventListener("click", (e) => {
+    // ガチャ開始時にボタンを非表示にする
+    const gachaBtn = e.target;
+    gachaBtn.style.display = "none";
+
     Promise.all([
         fetch("movielist.txt").then(res => res.text()),
         fetch("Uwasa.txt").then(res => res.text())
@@ -111,6 +115,9 @@ document.getElementById("gachaBtn").addEventListener("click", () => {
         }
     }).catch(err => {
         console.error("データの読み込みに失敗しました:", err);
+        // エラー時もボタンを再表示
+        const gachaBtn = document.getElementById("gachaBtn");
+        gachaBtn.style.display = "inline-block";
     });
 });
 
@@ -208,6 +215,11 @@ function showResult() {
         const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
         window.open(twitterUrl, '_blank');
     };
+
+    // --- 結果が完全に表示されたタイミングでボタンを「もう一度回す！」に変更して再表示 ---
+    const gachaBtn = document.getElementById("gachaBtn");
+    gachaBtn.textContent = "もう一度回す！";
+    gachaBtn.style.display = "inline-block";
 }
 
 function extractYouTubeID(url) {
