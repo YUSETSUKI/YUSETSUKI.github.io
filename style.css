@@ -173,8 +173,8 @@ h1 {
 
 /* ③ 英文 (Now Loading…)：ウワサの右下（内寄りのバランス） */
 .now-loading {
-      left: 0;
-  height: 80%;
+      right: 0;
+  height: 85%;
     color: #fff;
     font-size: 1.4em;
     font-weight: bold;
