@@ -131,7 +131,7 @@ h1 {
 /* ② 読み込みバー：メイン枠（700px）の左端 / 狭いときは画面左端（上から80%の位置） */
 .progress-container {
     position: fixed;
-    top: 80%;
+    top: 45%;
     left: max(15px, calc(50% - 350px));
     transform: translateY(-50%);
     background: #fff;
@@ -178,7 +178,7 @@ h1 {
 /* ③ 英文 (Now Loading…)：メイン枠（700px）の右端 / 狭いときは画面右端（上から80%の位置） */
 .now-loading {
     position: fixed;
-    top: 80%;
+    top: 50%;
     left: auto;
     right: max(15px, calc(50% - 350px));
     transform: translateY(-50%);
